@@ -18,7 +18,7 @@ class NavBar extends Component{
             <nav>
                 <div className="logo">DK weather</div>
                 <div className="light-mode">
-                    <button className={switchButton} onClick={() => this.handleThemeSwitch()}></button>
+                    <div className={switchButton} onClick={() => this.handleThemeSwitch()}></div>
                 </div>
             </nav>
         )

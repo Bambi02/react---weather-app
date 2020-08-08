@@ -24,16 +24,16 @@ class CityDetail extends Component{
     loadData = async () => {
         try{
             const cityID = this.props.match.params.id
-            const loadData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const getData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
-            const cityData = loadData.data
+            const cityData = getData.data
             const lat = cityData.coord.lat;
             const lon = cityData.coord.lon;
-            const loadDetails = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const getDetails = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
-            const cityDetails = loadDetails.data;
+            const cityDetails = getDetails.data;
     
             this.setState({
                 cityData,

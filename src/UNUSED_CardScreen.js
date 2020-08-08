@@ -7,14 +7,8 @@ class CardScreen extends Component {
 
     signal = axios.CancelToken.source();
 
-    state = {
-        width:0
-    }
-
     componentDidMount() {
-        const width = this.divElement.clientWidth;
-        this.setState({ width });
-        this.updateData();
+        //this.updateData();
     }
 
     componentWillUnmount() {
@@ -44,24 +38,15 @@ class CardScreen extends Component {
         }
     }
 
-    closeCityCard = (id) => {
-        const data = this.props.data.filter( data => data.id !== id);
-
-        this.props.saveData(data)
-    }
-
     render() {
         return(
-            <div className="cardsScreen"
-                ref={ (divElement) => { this.divElement = divElement } }
-            >
+            <div className="cardsScreen">
                 <CityCards
-                    cityData={this.props.data} 
-                    closeCity={this.closeCityCard}
-                    parentWidth={this.state.width}
-                    numberOfCards={this.props.data.length}
+                    data={this.props.data} 
+                    numberOfCards={this.props.numberOfCards}
+                    saveData={this.props.saveData}
                 />
-                <AddCityCard handleToggle={this.props.toggleHomeScreen} />
+                <AddCityCard handleToggle={this.props.handleToggle} />
             </div>
         )
     }

@@ -28,10 +28,10 @@ class FormScreen extends Component {
         const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`;
 
         try{
-            const fetch = await axios.get(API, {
+            const getData = await axios.get(API, {
                 cancelToken: this.signal.token,
             });
-            const data = fetch.data;
+            const data = getData.data;
 
             if(this.props.data.filter(city => city.name === data.name).length > 0){
                 this.errorNotif('Také mesto už máš pridané');
@@ -71,7 +71,7 @@ class FormScreen extends Component {
         this.clearNotif();
     }
 
-    clearNotif = () => this.handleTimeout = setTimeout(() => this.setState({ formNotification: false }), 1500);
+    clearNotif = () => this.handleTimeout = setTimeout(() => this.setState({ formNotification: false }), 1200);
 
     render() {
         return(
@@ -82,7 +82,7 @@ class FormScreen extends Component {
                     inputValue={this.state.input}
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
-                    toggleScreen={this.props.toggleScreen}
+                    handleScreenToggle={this.props.handleScreenToggle}
                 />
             </div>
         )

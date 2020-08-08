@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,11 +12,13 @@ body {
 }
 
 .app{
-  height: 80vh;
+  height: 40vw;
   width: 70vw;
   border: 1px rgb(214, 214, 214) solid;
   box-shadow: 15px 15px 15px rgb(179, 179, 179);
-  margin-top: 10vh;
+  position: relative;
+  top: 50vh;
+  transform: translateY(-50%);
 }
 
 a{
@@ -22,7 +28,7 @@ a{
 /*´=============================================================== NAV BAR ==============================================================*/
 
 nav{
-  height: 80px;
+  height: 4vw;
   border-bottom: rgb(199, 199, 199) 1px solid;
   display: flex;
   justify-content: space-between;
@@ -32,22 +38,22 @@ nav{
 }
 
 .logo{
-  font-size: 1.7rem;
+  font-size: 1.3vw;
   font-weight: bold;
 }
 
 .light-mode{
   border: 1px solid gray;
   border-radius: 50px;
-  width: 50px;
-  height: 25px;
+  width: 2vw;
+  height: 1vw;
   position: relative;
 }
 
 .switch-button-off, 
 .switch-button-on{
-  height: 30px;
-  width: 30px;
+  height: 1.2vw;
+  width: 1.2vw;
   border-radius: 50%;
   background-color: gray;
   border: 1px solid gray;
@@ -70,7 +76,7 @@ nav{
 
 .cardsScreen,
 .formScreen{
-  height: calc(100% - 80px);
+  height: calc(100% - 4vw);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -90,8 +96,8 @@ nav{
 
 .addCityForm{
   position: absolute;
-  height: 55%;
-  width: 22%;
+  height: 27vw;
+  width: 18vw;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(209, 209, 209);
   border: 1px solid rgb(231, 231, 231);
@@ -102,7 +108,7 @@ nav{
 
 .addCityForm form{
   position: absolute;
-  top: 100px;
+  top: 4vw;
   width: 60%;
   display: flex;
   justify-content: center;
@@ -112,13 +118,12 @@ nav{
   border: none;
   border-bottom: black 3px solid;
   width: 100%;
-  font-size: 1.5rem;
-  padding: 10px;
+  font-size: 1.1vw;
+  padding: 0.3vw;
   text-align: center;
 }
 
-.addCityCard h1,
-.addCityForm h1{
+.addCityCard h1{
   position: absolute;
   top: 20px;
   font-size: 2rem;
@@ -128,8 +133,8 @@ nav{
 
 .linkContainer,
 .addCityCard{
-  height: 450px;
-  min-width: 300px;
+  height: 18vw;
+  min-width: 12vw;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(209, 209, 209);
   border: 1px solid rgb(231, 231, 231);
@@ -137,21 +142,26 @@ nav{
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 15px;
+  margin: 0.75vw;
+}
+
+.addCityCard>h1{
+  font-size: 1.5vw;
+  top: 0;
 }
 
 .addCityCard{
-  margin-right: 30px;
+  margin-right: 1.5vw;
 }
 
 .addCityBtn,
 .addCityBackBtn{
-  height: 90px;
-  width: 90px;
+  height: 3.5vw;
+  width: 3.5vw;
   border-radius: 50%;
   border: 5px solid rgb(22, 22, 22);
   background-color: white;
-  font-size: 6rem;
+  font-size: 4vw;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -162,10 +172,10 @@ nav{
 }
 
 .addCityBackBtn{
-  height: 60px;
-  width: 60px;
+  height: 2.8vw;
+  width: 2.8vw;
   top: 30%;
-  font-size: 3rem;
+  font-size: 2vw;
 }
 
 .addCityBtn:hover,
@@ -183,7 +193,7 @@ nav{
 .listOfCards{
   display: flex;
   padding-left: 0;
-  height: 100%;
+  height: 21vw;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -199,7 +209,7 @@ nav{
 
 .cityCard{
   position: relative;
-  margin: 15px;
+  margin: 0.75vw;
 }
 
 .cityCard:hover{
@@ -217,44 +227,44 @@ nav{
 
 .cityName{
   position: absolute;
-  top: 10px;
-  font-size: 2rem;
+  top: 0;
+  font-size: 1.5vw;
   text-align: center;
   padding: 0 5px;
 }
 
 .linkContainer>i{
-  font-size: 6rem;
+  font-size: 4vw;
   position: absolute;
   top: 25%;
 }
 
 .currentTemp{
   position: absolute;
-  bottom: 140px;
-  font-size: 4.5rem;
+  bottom: 31%;
+  font-size: 3vw;
   font-weight: bold;
 }
 
 .degrees{
   position: absolute;
-  top: -5px;
-  right: -20px;
-  font-size: 3rem;
+  top: -10px;
+  right: -30%;
+  font-size: 2.3vw;
 }
 
 .weatherDesc{
   position: absolute;
-  bottom: 120px;
-  font-size: 1.2rem;
+  bottom: 22%;
+  font-size: 1vw;
 }
 
 .daylight{
   position: absolute;
-  bottom: 35px;
+  bottom: 7%;
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 2.5vw;
   width: 100%;
 }
 
@@ -268,21 +278,15 @@ nav{
 
 .wi-sunrise,
 .wi-sunset{
-  font-size: 2rem;
-}
-
-.wi-night-sleet{
-  height: 20px;
-  width: 20px;
-  font-size: 2rem;
+  font-size: 2vw;
 }
 
 .closeCityBtn{
   position: absolute;
-  top: 10px;
-  right: 10px;
-  height: 25px;
-  width: 25px;
+  top: 2%;
+  right: 2%;
+  height: 1vw;
+  width: 1vw;
   border-radius: 50%;
   border: 3px solid black;
   cursor: pointer;
@@ -290,7 +294,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0);
   box-shadow: 2px 2px 3px rgb(190, 190, 190);
@@ -301,8 +305,19 @@ nav{
   transform: scale(1.1);
 }
 
+.closeCityBtn:hover>span{
+  transform: scale(1.1) rotate(45deg);
+}
+
 .closeCityBtn span{
-  transform: rotate(45deg) translate(0%, -5%);
+  transform: rotate(45deg);
+  font-size: 1.1vw;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*------------------------------------------------ SLIDER -----------------------------------------*/
@@ -310,12 +325,10 @@ nav{
 .cardSlider{
   display: flex;
   padding-left: 0;
-  margin: 15px;
-  margin-left: 30px;
-  margin-right: 0;
-  padding-right: 15px;
+  margin: 0.75vw;
+  margin-left: 1.5vw;
   overflow: hidden;
-  height: 550px;
+  height: 21vw;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -323,9 +336,9 @@ nav{
 
 .sliderLeft,
 .sliderRight{
-  height: 450px;
-  width: 150px;
-  z-index: 10;
+  height: 18vw;
+  width: 5.7vw;
+  z-index: 100;
   background-color: rgba(197, 197, 197, 0.705);
   cursor: pointer;
   border: none;
@@ -376,7 +389,7 @@ nav{
 
 .loadScreen,
 .errorScreen{
-  height: calc(100% - 80px);
+  height: calc(100% - 4vw);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -385,11 +398,11 @@ nav{
 
 .loadScreen>h1,
 .errorScrenn>h1{
-  font-size: 3rem;
+  font-size: 2vw;
 }
 
 .loadScreen>i{
-  font-size: 8rem;
+  font-size: 5vw;
   animation: spin-animation 7s linear infinite;
 }
 

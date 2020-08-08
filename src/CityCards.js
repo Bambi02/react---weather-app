@@ -1,34 +1,52 @@
 import React, { Component } from 'react';
-import ListOfCities from './ListOfCities';
+import ListOfCards from './ListOfCards';
 import CardSlider from './CardSlider';
 
 class CityCards extends Component{
+    cardsReqSlider = 5;
+
     state = {
         position: 0,
     }
 
-    moveCardsLeft = () => this.setState({ position: this.state.position - 330 })
+    closeCityCard = (id) => {
+        const data = this.props.data.filter( data => data.id !== id);
 
-    moveCardsRight = () => this.setState({ position: this.state.position + 330 })
+        this.props.saveData(data);
+    }
 
-    maxCardsWithoutSlider = () => {
-        const parentWidth = this.props.parentWidth;
-        const availableWidth = parentWidth - 390;
-        const cardsToFit = availableWidth / 330;
+    handleCardClose = (id) => {
+        const cardWidth = 13.5;
 
-        return cardsToFit;
+        if(this.props.numberOfCards > this.cardsReqSlider) {
+            if(this.props.numberOfCards % 2 === 0){
+                this.setState( oldState => ({ position: oldState.position - (cardWidth / 2) }));
+            }else{
+                this.setState( oldState => ({ position: oldState.position + (cardWidth / 2) }));
+            }
+        }else if(this.props.numberOfCards === this.cardsReqSlider){
+            this.setState( { position: 0 });
+        }  
+
+        this.closeCityCard(id);
+    }
+
+    setPosition = (offset) => {
+        this.setState( oldState => ({ 
+            position: oldState.position + offset,
+        }))
     }
 
     render(){
-        if(this.props.numberOfCards > this.maxCardsWithoutSlider()){
+        if(this.props.numberOfCards >= this.cardsReqSlider){
             return(
                 <CardSlider 
-                    moveLeft={this.moveCardsLeft}
-                    moveRight={this.moveCardsRight}
+                    setPosition={this.setPosition}
+                    numberOfCards = {this.props.numberOfCards}
                 >
-                    <ListOfCities
-                        cityData={this.props.cityData} 
-                        closeCity={this.props.closeCity}
+                    <ListOfCards
+                        data={this.props.data} 
+                        handleCardClose={this.handleCardClose}
                         position={this.state.position} 
                     />
                 </CardSlider>
@@ -36,9 +54,9 @@ class CityCards extends Component{
         }
 
         return(
-            <ListOfCities
-                cityData={this.props.cityData} 
-                closeCity={this.props.closeCity}
+            <ListOfCards
+                data={this.props.data} 
+                handleCardClose={this.handleCardClose}
                 position={this.state.position} 
             />
         )

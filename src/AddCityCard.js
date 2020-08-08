@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AddCityCard = ({ handleToggle }) => {
+const AddCityCard = ({ handleScreenToggle }) => {
     return(
     <div className="addCityCard">
         <h1>Pridaj mesto</h1>
-        <div className="addCityBtn" onClick={handleToggle}>+</div>
+        <div className="addCityBtn" onClick={handleScreenToggle}>+</div>
     </div>
     )
 }

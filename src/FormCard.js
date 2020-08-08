@@ -1,7 +1,7 @@
 import React from 'react';
 import NotificationMessgae from './NotificationMessage';
 
-const FormCard = ({ notification, notifColor, handleSubmit, handleChange, inputValue, toggleScreen }) => {
+const FormCard = ({ notification, notifColor, handleSubmit, handleChange, inputValue, handleScreenToggle }) => {
     return(
         <div className="addCityForm">
             {notification && <NotificationMessgae error={notification} color={notifColor}/>}
@@ -13,7 +13,7 @@ const FormCard = ({ notification, notifColor, handleSubmit, handleChange, inputV
                     value={inputValue}
                 />
             </form>
-            <div className="addCityBackBtn" onClick={toggleScreen}><i className="fas fa-arrow-left"></i></div>
+            <div className="addCityBackBtn" onClick={handleScreenToggle}><i className="fas fa-arrow-left"></i></div>
         </div>
     )
 }
