@@ -57,4 +57,4 @@ const CityCard = ({ cityData, handleCardClose }) => {
 
 }
 
-export default CityCard
+export default CityCard 

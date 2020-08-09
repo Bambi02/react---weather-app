@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import LoadScreen from './LoadScreen';
 import ErrorScreen from './ErrorScreen'
+import DetailScreen from './DetailScreen'
 
 class CityDetail extends Component{
 
@@ -9,8 +10,8 @@ class CityDetail extends Component{
 
     state={
         err: null,
-        cityData: null,
-        cityDetails: null,
+        currentData: null,
+        forecastData: null,
     }
 
     componentDidMount() {
@@ -27,17 +28,17 @@ class CityDetail extends Component{
             const getData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
-            const cityData = getData.data
-            const lat = cityData.coord.lat;
-            const lon = cityData.coord.lon;
-            const getDetails = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const currentData = getData.data
+            const lat = currentData.coord.lat;
+            const lon = currentData.coord.lon;
+            const getForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={hourly}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
-            const cityDetails = getDetails.data;
+            const forecastData = getForecast.data;
     
             this.setState({
-                cityData,
-                cityDetails
+                currentData,
+                forecastData
             })
         }catch(err) {
             if (axios.isCancel(err)) {
@@ -49,18 +50,18 @@ class CityDetail extends Component{
     }
 
     render(){
-        const { cityData, cityDetails, err } = this.state;
+        const { currentData, forecastData, err } = this.state;
 
         if(err){
             return(
                 <ErrorScreen />
             )
-        }else if(cityDetails) {
+        }else if(forecastData) {
             return(
-                <div>
-                    {cityData.name}
-                    {cityDetails.timezone}
-                </div>
+                <DetailScreen 
+                    currentData={currentData}
+                    forecastData={forecastData}
+                />
             )
         }else{
             return(
