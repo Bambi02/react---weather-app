@@ -31,7 +31,7 @@ class CityDetail extends Component{
             const currentData = getData.data
             const lat = currentData.coord.lat;
             const lon = currentData.coord.lon;
-            const getForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={hourly}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const getForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={hourly,minutely}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
             const forecastData = getForecast.data;
@@ -61,6 +61,7 @@ class CityDetail extends Component{
                 <DetailScreen 
                     currentData={currentData}
                     forecastData={forecastData}
+                    match={this.props.match}
                 />
             )
         }else{

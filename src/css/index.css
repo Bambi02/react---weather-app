@@ -416,6 +416,20 @@ nav{
 
 /*======================================================== CITY DETAIL SCREEN =====================================================================*/
 
+.detailScreen{
+  position: relative;
+  height: 36vw;
+  width: 100%;
+}
+
+.detailCityName{
+  font-size: 3vw;
+  text-decoration: underline;
+  position: absolute;
+  top: 3vw;
+  right: 10vw;
+}
+
 /*------------------------------------------------------------------- DAY CARD ---------------------------------------------------------------*/
 
 .dayCardsList{
@@ -441,6 +455,7 @@ nav{
   align-items: center;
   cursor: pointer;
   transition: ease-out 0.2s all;
+  background-color: white;
 }
 
 .dayCard:hover{
@@ -500,6 +515,108 @@ nav{
   font-size: 1.2vw;
 }
 
+/*--------------------------------------- DAY DETAIL ------------------------------------------------------*/
+
+.dayScreen{
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.dayDetails{
+  width: 30%;
+  height: 14vw;
+  position: absolute;
+  left: 4vw;
+  top: 4.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dayNightTemps{
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.6vw;
+}
+
+.dayNightTemps>span{
+  font-size: 9vw;
+}
+
+.dayNightTemps>div{
+  display: flex;
+  flex-direction: column;
+}
+
+.popisDenMax,
+.popisDenMin{
+  font-size: 1.2vw;
+  position: relative;
+}
+
+.denMax>p,
+.denMin>p{
+  font-size: 7vw;
+}
+
+.denMax>p{
+  position: relative;
+  right: 0.5vw;
+  bottom: 2.5vw;
+}
+
+.denMin>p{
+  position: relative;
+  left: 0.5vw;
+  top: 2.5vw;
+}
+
+.maxDayDegree{
+  font-size: 3.5vw;
+  font-weight: bold;
+  position: absolute;
+  top: -0.5vw;
+  right: 10vw;
+}
+
+.minDayDegree{
+  font-size: 3.5vw;
+  font-weight: bold;
+  position: absolute;
+  top: 3vw;
+  right: -0.5vw;
+}
+
+.cloudsRain{
+  display: flex;
+  height: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.cloudsRain div{
+  padding: 0 1vw;
+  text-align: center;
+}
+
+.cloudiness{
+  border-right: 2px solid rgb(175, 175, 175) ;
+}
+
+.cloudiness h2,
+.rainProb h2{
+  font-size: 1.2vw;
+}
+
+.cloudiness p,
+.rainProb p{
+  font-size: 1vw;
+  padding-top: 0.1vw;
+}
+
 /*----------------------------------------------- GO HOME BTN ------------------------------------------------*/
 
 .goHomeBtn{
@@ -515,6 +632,7 @@ nav{
   position: relative;
   top: 1vw;
   left: 1vw;
+  box-shadow: 0.2vw 0.2vw 0.3vw rgb(173, 173, 173);
 }
 
 .goHomeBtn:hover{
