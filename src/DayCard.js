@@ -1,18 +1,8 @@
 import React from 'react';
 import './css/weather-icons.css';
-import weatherIcons from './WeatherIcons';
 import { Link } from 'react-router-dom';
 
-const DayCard = ({ day, match }) => {
-
-    const getWeatherIcon = (dayData) => {
-        const prefix = 'wi wi-';
-        const code = `day-${dayData.weather[0].id}`;
-
-        const icon = weatherIcons[code];
-      
-        return (prefix + icon);
-    };
+const DayCard = ({ day, match, getWeatherIcon }) => {
 
     const getNameOfDay = (dayData) => {
         const today = new Date().getDay()
@@ -38,14 +28,14 @@ const DayCard = ({ day, match }) => {
                 <div className="maxTemp">
                     <h2>Max</h2>
                     <p>
-                        { Math.floor(day.temp.max) }
+                        { Math.round(day.temp.max) }
                         <span className="dayDegrees">°</span>
                     </p>
                 </div>
                 <div className="minTemp">
                     <h2>Min</h2>
                     <p>
-                        { Math.floor(day.temp.min) }
+                        { Math.round(day.temp.min) }
                         <span className="dayDegrees">°</span>
                     </p>
                 </div>

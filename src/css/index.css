@@ -422,12 +422,30 @@ nav{
   width: 100%;
 }
 
+.detailCityInfo{
+  position: relative;
+  top: 2.5vw;
+  width: 30vw;
+  right: -35vw;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  padding-right: 2vw;  
+}
+
+.detailCityInfo>i{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2vw;
+  font-size: 5vw;
+
+}
+
 .detailCityName{
   font-size: 3vw;
   text-decoration: underline;
-  position: absolute;
-  top: 3vw;
-  right: 10vw;
+  text-align: center;
 }
 
 /*------------------------------------------------------------------- DAY CARD ---------------------------------------------------------------*/
@@ -459,7 +477,7 @@ nav{
 }
 
 .dayCard:hover{
-  transform: translateY(-20%);
+  transform: translateY(-18%);
   border: 1px solid rgb(179, 179, 179);
 }
 
@@ -525,10 +543,10 @@ nav{
 
 .dayDetails{
   width: 30%;
-  height: 14vw;
+  height: 15vw;
   position: absolute;
   left: 4vw;
-  top: 4.5vw;
+  top: 4vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -559,35 +577,26 @@ nav{
 
 .denMax>p,
 .denMin>p{
-  font-size: 7vw;
+  font-size: 6vw;
+  position: relative;
 }
 
 .denMax>p{
-  position: relative;
-  right: 0.5vw;
-  bottom: 2.5vw;
+  right: 0vw;
+  bottom: 2vw;
 }
 
 .denMin>p{
-  position: relative;
-  left: 0.5vw;
-  top: 2.5vw;
+  left: 0vw;
+  top: 2vw;
 }
 
-.maxDayDegree{
+.DayDegree{
   font-size: 3.5vw;
   font-weight: bold;
   position: absolute;
   top: -0.5vw;
-  right: 10vw;
-}
-
-.minDayDegree{
-  font-size: 3.5vw;
-  font-weight: bold;
-  position: absolute;
-  top: 3vw;
-  right: -0.5vw;
+  right: -1.5vw;
 }
 
 .cloudsRain{
@@ -598,23 +607,24 @@ nav{
 }
 
 .cloudsRain div{
-  padding: 0 1vw;
   text-align: center;
+}
+
+.cloudsRain i{
+  font-size: 2.5vw;
 }
 
 .cloudiness{
   border-right: 2px solid rgb(175, 175, 175) ;
 }
 
-.cloudiness h2,
-.rainProb h2{
-  font-size: 1.2vw;
-}
-
 .cloudiness p,
 .rainProb p{
   font-size: 1vw;
-  padding-top: 0.1vw;
+  padding: 0 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*----------------------------------------------- GO HOME BTN ------------------------------------------------*/
@@ -633,8 +643,24 @@ nav{
   top: 1vw;
   left: 1vw;
   box-shadow: 0.2vw 0.2vw 0.3vw rgb(173, 173, 173);
+  z-index: 50;
 }
 
 .goHomeBtn:hover{
   transform: scale(1.1);
+}
+
+.grafik{
+  width: 20vw;
+  height: 20vw;
+}
+
+.chart {
+  position: absolute;
+  width: 30vw;
+  height: 12vw;
+  top: 9vw;
+  right: 5vw;
+  text-align: center;
+  margin-bottom: 0;
 }

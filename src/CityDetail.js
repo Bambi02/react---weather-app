@@ -12,6 +12,7 @@ class CityDetail extends Component{
         err: null,
         currentData: null,
         forecastData: null,
+        threeHrsData:null,
     }
 
     componentDidMount() {
@@ -25,20 +26,27 @@ class CityDetail extends Component{
     loadData = async () => {
         try{
             const cityID = this.props.match.params.id
-            const getData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const getCurrent = await axios.get(
+                `http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
-            const currentData = getData.data
-            const lat = currentData.coord.lat;
-            const lon = currentData.coord.lon;
-            const getForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={hourly,minutely}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+            const currentData = getCurrent.data
+            const getThreeHrs = await axios.get(
+                `http://api.openweathermap.org/data/2.5/forecast?id=${cityID}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
+                cancelToken: this.signal.token,
+            });
+            const threeHrsData = getThreeHrs.data
+            const { lat, lon } = currentData.coord;
+            const getForecast = await axios.get(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={minutely}&appid=502ea6c76f8ffb6acf5b2bc5dfcfb9fe&units=metric&lang=sk`,{
                 cancelToken: this.signal.token,
             });
             const forecastData = getForecast.data;
     
             this.setState({
                 currentData,
-                forecastData
+                forecastData,
+                threeHrsData,
             })
         }catch(err) {
             if (axios.isCancel(err)) {
@@ -50,7 +58,7 @@ class CityDetail extends Component{
     }
 
     render(){
-        const { currentData, forecastData, err } = this.state;
+        const { currentData, forecastData, threeHrsData, err } = this.state;
 
         if(err){
             return(
@@ -61,6 +69,7 @@ class CityDetail extends Component{
                 <DetailScreen 
                     currentData={currentData}
                     forecastData={forecastData}
+                    threeHrsData={threeHrsData}
                     match={this.props.match}
                 />
             )
