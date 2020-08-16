@@ -36,8 +36,30 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 2vw;
   box-shadow: 0 3px 4px rgb(184, 184, 184);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.rightPart,
+.leftPart{
+  width: 10vw;
+  display: flex;
+  align-items: center;
+}
+
+.leftPart>i{
+  margin-right: 1vw;
+  font-size: 1vw;
+  cursor: pointer;
+  padding-top: 0.1vw;
+}
+
+.rightPart{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .logo{
@@ -45,45 +67,66 @@ nav{
   font-weight: bold;
 }
 
+.navDayName{
+  font-size: 2vw;
+  font-weight: bold;
+}
+
 .light-mode{
-  border: 1px solid gray;
   border-radius: 50px;
-  width: 2vw;
-  height: 1vw;
+  width: 2.5vw;
+  height: 1.3vw;
   position: relative;
+  margin: 0 0.7vw;
+  z-index: 1000;
+  box-shadow: 
+    inset -2px -2px 4px #0000002a,
+    inset 2px 2px 4px #0000001f;
+}
+
+.rightPart i{
+  font-size: 1.2vw;
+  color: rgb(187, 187, 187);
+}
+
+.rightPart>.wi-day-sunny{
+  color: rgb(77, 77, 77);
 }
 
 .switch-button-off, 
 .switch-button-on{
-  height: 1.2vw;
-  width: 1.2vw;
+  height: 1vw;
+  width: 1vw;
   border-radius: 50%;
-  background-color: gray;
-  border: 1px solid gray;
+  background: linear-gradient( 145deg, #ffffff, #c4c4c4);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-
+  transition: ease-out 2s all;
+  box-shadow: 
+    inset -2px -2px 4px #0000002a,
+    inset 2px 2px 4px #0000001f;
 }
 
 .switch-button-off{
-  left: 0;
+  left: 0.2vw;
 }
 
 .switch-button-on{
-  right: 0;
+  right: 0.2vw;
 }
 
 /*=============================================================== HOME ========================================================*/
 
 .cardsScreen,
 .formScreen{
-  height: calc(100% - 4vw);
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 4vw;
 }
 
 /*----------------------------------------------- FORM CARD ------------------------------------------*/
@@ -107,6 +150,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .addCityForm form{
@@ -418,34 +462,35 @@ nav{
 
 .detailScreen{
   position: relative;
-  height: 36vw;
+  height: 40vw;
   width: 100%;
+
 }
 
 .detailCityInfo{
   position: relative;
-  top: 2.5vw;
+  top: 3.5vw;
   width: 30vw;
   right: -35vw;
   display: flex;
   align-content: center;
   justify-content: flex-end;
-  padding-right: 2vw;  
 }
 
 .detailCityInfo>i{
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 2vw;
+  padding: 0 2vw;
   font-size: 5vw;
-
 }
 
 .detailCityName{
   font-size: 3vw;
+  padding-left: 2vw;
   text-decoration: underline;
-  text-align: center;
+  text-align: end;
+  display: flex;
 }
 
 /*------------------------------------------------------------------- DAY CARD ---------------------------------------------------------------*/
@@ -535,18 +580,12 @@ nav{
 
 /*--------------------------------------- DAY DETAIL ------------------------------------------------------*/
 
-.dayScreen{
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
 .dayDetails{
   width: 30%;
   height: 15vw;
   position: absolute;
   left: 4vw;
-  top: 4vw;
+  top: 8vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -640,7 +679,7 @@ nav{
   font-size: 1.5vw;
   cursor: pointer;
   position: relative;
-  top: 1vw;
+  top: 5vw;
   left: 1vw;
   box-shadow: 0.2vw 0.2vw 0.3vw rgb(173, 173, 173);
   z-index: 50;
@@ -659,7 +698,7 @@ nav{
   position: absolute;
   width: 30vw;
   height: 12vw;
-  top: 9vw;
+  top: 13vw;
   right: 5vw;
   text-align: center;
   margin-bottom: 0;

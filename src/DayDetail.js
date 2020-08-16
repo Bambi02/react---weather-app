@@ -2,7 +2,6 @@ import React from 'react';
 import RainChart from './RainChart'
 import './css/weather-icons.css';
 
-
 const DayDetail = ({ currentData, forecastData, threeHrsData, getWeatherIcon, match }) => {
 
     const thisDayData = forecastData.daily.find((day) => day.dt == match.params.day);
@@ -10,8 +9,6 @@ const DayDetail = ({ currentData, forecastData, threeHrsData, getWeatherIcon, ma
 
     return(
         <div className="dayScreen">
-
-
             <div className="detailCityInfo">
                 <h2 className="detailCityName">
                     {currentData.name}

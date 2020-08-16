@@ -2,7 +2,7 @@ import React from 'react';
 import './css/weather-icons.css';
 import { Link } from 'react-router-dom';
 
-const DayCard = ({ day, match, getWeatherIcon }) => {
+const DayCard = ({ day, match, getWeatherIcon, setDay }) => {
 
     const getNameOfDay = (dayData) => {
         const today = new Date().getDay()
@@ -19,7 +19,7 @@ const DayCard = ({ day, match, getWeatherIcon }) => {
     }
 
     return(
-        <Link to={`${match.url}/${day.dt}`} className="dayCard" key={day.dt}>
+        <Link to={`${match.url}/${day.dt}`} className="dayCard" key={day.dt} onClick={() => setDay(getNameOfDay(day.dt)) }>
             <h2 className="dayName">
                 { getNameOfDay(day.dt) }
             </h2>

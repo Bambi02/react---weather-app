@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <NavBar />
+
         <Route path="/" exact component={Home} />
         <Route path="/:id" component={CityDetail} />
       </div>
