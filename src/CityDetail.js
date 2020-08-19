@@ -4,6 +4,7 @@ import LoadScreen from './LoadScreen';
 import ErrorScreen from './ErrorScreen'
 import DetailScreen from './DetailScreen'
 
+
 class CityDetail extends Component{
 
     signal = axios.CancelToken.source();
@@ -66,12 +67,15 @@ class CityDetail extends Component{
             )
         }else if(forecastData) {
             return(
-                <DetailScreen 
-                    currentData={currentData}
-                    forecastData={forecastData}
-                    threeHrsData={threeHrsData}
-                    match={this.props.match}
-                />
+                <>
+                    <DetailScreen 
+                        currentData={currentData}
+                        forecastData={forecastData}
+                        threeHrsData={threeHrsData}
+                        match={this.props.match}
+                    />
+
+                </>
             )
         }else{
             return(

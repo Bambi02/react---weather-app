@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import SideMenu from './SideMenu'
 
 class NavBar extends Component{
     state={
         lightMode: true,
+        sideBar: false,
     };
 
     handleThemeSwitch = () => {
@@ -11,26 +13,38 @@ class NavBar extends Component{
         })
     }
 
+    toggleSideBar = () => {
+        this.setState({
+            sideBar: this.state.sideBar ? false : true
+        })
+    }
+
     render(){
         const switchButton = this.state.lightMode ? 'switch-button-off' : 'switch-button-on';
 
         return(
-            <nav>
-                <div className="leftPart">
-                    <i class="fas fa-bars"></i>
-                    <div className="logo">DK weather</div>
-                </div>
-                <div className="navDayName">
-                    { this.props.children }
-                </div>
-                <div className="rightPart">
-                    <i className='wi wi-day-sunny'></i>
-                    <div className="light-mode">
-                        <div className={switchButton} onClick={() => this.handleThemeSwitch()}></div>
+            <div>
+                <nav>
+                    <div className="leftPart">
+                        <i className="fas fa-bars" onClick={this.toggleSideBar}></i>
+                        <div className="logo">DK weather</div>
                     </div>
-                    <i className='wi wi-night-clear'></i>
-                </div>
-            </nav>
+                    <div className="navDayName">
+                        { this.props.children }
+                    </div>
+                    <div className="rightPart">
+                        <i className='wi wi-day-sunny'></i>
+                        <div className="light-mode">
+                            <div className={switchButton} onClick={() => this.handleThemeSwitch()}></div>
+                        </div>
+                        <i className='wi wi-night-clear'></i>
+                    </div>
+                </nav>
+                <SideMenu
+                    toggleSideBar={this.toggleSideBar}
+                    sideBar={this.state.sideBar}
+                />
+            </div>
         )
     }
 }
