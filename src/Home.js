@@ -3,7 +3,7 @@ import CityCards from './CityCards';
 import FormScreen from './FormScreen';
 import AddCityCard from './AddCityCard';
 import axios from 'axios';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 class Home extends Component {
 
@@ -63,7 +63,7 @@ class Home extends Component {
         if(this.state.cardScreen) {
             return(
                 <div className="cardsScreen">
-                    <NavBar />
+                    <Navigation />
                     <CityCards
                       data={this.state.data} 
                       numberOfCards={this.state.data.length}

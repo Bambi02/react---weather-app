@@ -5,7 +5,7 @@ import DayDetail from './DayDetail';
 import { Route } from 'react-router-dom'
 import './css/weather-icons.css';
 import weatherIcons from './WeatherIcons';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 
 const DetailScreen = ({ currentData, forecastData, threeHrsData, match }) => {
@@ -23,9 +23,9 @@ const DetailScreen = ({ currentData, forecastData, threeHrsData, match }) => {
 
     return(
         <div className="detailScreen">
-            <NavBar>
+            <Navigation>
                 { day }
-            </NavBar>
+            </Navigation>
             <GoHomeBtn />
             <Route 
                 path={`${match.path}/:day`} 
