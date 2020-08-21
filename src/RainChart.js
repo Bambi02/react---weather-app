@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
@@ -28,7 +28,7 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
     const modifiedHrs = orgArr => orgArr.map( hour => hour < 10 ? `0${hour}:00` : `${hour}:00` );
 
     const chart = threeHrsForecastHours.length ? (
-        <Bar
+        <Line
             data={{
                 labels: todayForecastHours ? modifiedHrs(todayForecastHours) : modifiedHrs(threeHrsForecastHours),
                 datasets:[{

@@ -858,6 +858,7 @@ nav{
   color: rgb(54, 54, 54);
   background-color: rgb(238, 238, 238);
   margin-top: 1vw;
+  border: none;
 }
 
 #log-in:hover{

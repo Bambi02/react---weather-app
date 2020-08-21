@@ -74,7 +74,6 @@ class CityDetail extends Component{
                         threeHrsData={threeHrsData}
                         match={this.props.match}
                     />
-
                 </>
             )
         }else{

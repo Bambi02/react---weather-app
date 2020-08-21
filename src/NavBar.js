@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import SideMenu from './SideMenu'
+import SlideMenu from './SlideMenu'
 
 class NavBar extends Component{
     state={
         lightMode: true,
-        sideBar: false,
+        slideMenuIn: false,
     };
 
     handleThemeSwitch = () => {
@@ -13,9 +13,9 @@ class NavBar extends Component{
         })
     }
 
-    toggleSideBar = () => {
+    toggleSlideMenu = () => {
         this.setState({
-            sideBar: this.state.sideBar ? false : true
+            slideMenuIn: this.state.slideMenuIn ? false : true
         })
     }
 
@@ -26,7 +26,7 @@ class NavBar extends Component{
             <div>
                 <nav>
                     <div className="leftPart">
-                        <i className="fas fa-bars" onClick={this.toggleSideBar}></i>
+                        <i className="fas fa-bars" onClick={this.toggleSlideMenu}></i>
                         <div className="logo">DK weather</div>
                     </div>
                     <div className="navDayName">
@@ -40,9 +40,9 @@ class NavBar extends Component{
                         <i className='wi wi-night-clear'></i>
                     </div>
                 </nav>
-                <SideMenu
-                    toggleSideBar={this.toggleSideBar}
-                    sideBar={this.state.sideBar}
+                <SlideMenu
+                    toggleSlideMenu={this.toggleSlideMenu}
+                    slideMenuIn={this.state.slideMenuIn}
                 />
             </div>
         )
