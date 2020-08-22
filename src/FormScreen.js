@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormCard from './FormCard';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 import axios from 'axios';
 
 class FormScreen extends Component {
@@ -77,7 +77,7 @@ class FormScreen extends Component {
     render() {
         return(
             <div className="formScreen">
-                <NavBar />
+                <Navigation />
                 <FormCard
                     notification={this.state.formNotification}
                     notifColor={this.state.notifColor}
