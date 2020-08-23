@@ -34,7 +34,8 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
                 datasets:[{
                     label: 'Pravdepodobnosť zrážok',
                     data: todayForecastRain ? todayForecastRain : threeHrsforecastRain,
-                    backgroundColor: 'lightGray',
+                    backgroundColor: 'transparent',
+                    borderColor: '#e7ad40',
                     hoverBackgroundColor: 'gray',
                     minBarLength: 1,
                 }]
@@ -45,6 +46,12 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
                 maintainAspectRatio: false ,
                 legend:{
                     display: false
+                },
+                layout: {
+                    padding: {
+                        left: 20,
+                        right: 30,
+                    }
                 },
                 tooltips:{
                     displayColors: false,
@@ -65,7 +72,7 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
                             display: false
                         },
                         ticks: {
-                            fontStyle: 'bold',
+                            fontStyle: 'normal',
                         }
                     }],
                     yAxes: [{

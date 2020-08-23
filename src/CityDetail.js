@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LoadScreen from './LoadScreen';
-import ErrorScreen from './ErrorScreen'
-import DetailScreen from './DetailScreen'
+import ErrorScreen from './ErrorScreen';
+import DetailScreen from './DetailScreen';
 
 
 class CityDetail extends Component{

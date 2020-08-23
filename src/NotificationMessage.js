@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 const NotificationMessgae = ({error, color}) => {
     return(
         <div className="errorMsg" style={{backgroundColor: color}}>
@@ -7,5 +9,6 @@ const NotificationMessgae = ({error, color}) => {
         </div>
     )
 }
+
 
 export default NotificationMessgae

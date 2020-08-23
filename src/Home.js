@@ -31,7 +31,6 @@ class Home extends Component {
 
     updateData = () => {
         const data = [];
-        console.log(this.getData())
         try{
             this.getData().map( async (city) => {
                 const getData = await axios.get(

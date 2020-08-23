@@ -21,30 +21,35 @@ const DayDetail = ({ currentData, forecastData, threeHrsData, getWeatherIcon, ma
                 thisDayData={thisDayData}
             />
             <div className="dayDetails">
-                <div className="dayNightTemps">
-                    <div className="denMax">
-                        <p>
-                            { Math.round(thisDayData.temp.max) }
-                            <span className="DayDegree" >°</span> 
-                        </p>
-                    </div>
-                    <span>/</span>
-                    <div className="denMin">
-                        <p>
-                            { Math.round(thisDayData.temp.min) }
-                            <span className="DayDegree" >°</span>
-                        </p>
-                    </div>
+                <div className="denMax">
+                    <i className="wi wi-day-sunny"></i>
+                    <p>
+                        { Math.round(thisDayData.temp.max) }
+                        <span className="DayDegree" >°C</span> 
+                    </p>
                 </div>
-                <div className="cloudsRain">
-                    <div className="cloudiness">
-                        <i className="wi wi-cloud"></i>
-                        <p>{ thisDayData.clouds + ' %' }</p>
-                    </div>
-                    <div className="rainProb">
-                        <i className="wi wi-raindrops"></i>
-                        <p>{ rainAmount + ' mm' }</p>
-                    </div>
+                <div className="denMin">
+                    <i className="wi wi-night-clear"></i>
+                    <p>
+                        { Math.round(thisDayData.temp.min) }
+                        <span className="DayDegree" >°C</span>
+                    </p>
+                </div>
+                <div className="humidity den-small">
+                    <i className="wi wi-humidity"></i>
+                    <p>{ thisDayData.humidity + ' %' }</p>
+                </div>
+                <div className="cloudiness den-small">
+                    <i className="wi wi-cloud"></i>
+                    <p>{ thisDayData.clouds + ' %' }</p>
+                </div>
+                <div className="rainProb den-small">
+                    <i className="wi wi-raindrop"></i>
+                    <p>{ Math.round(thisDayData.pop*100) + ' %' }</p>
+                </div>
+                <div className="rainAmount den-small">
+                    <i className="wi wi-raindrops"></i>
+                    <p>{ rainAmount + ' mm' }</p>
                 </div>
             </div>
 

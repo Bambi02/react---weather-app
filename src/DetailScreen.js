@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DayCardsList from './DayCardsList';
 import GoHomeBtn from './GoHomeBtn';
 import DayDetail from './DayDetail';
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import './css/weather-icons.css';
 import weatherIcons from './WeatherIcons';
 import Navigation from './Navigation';
@@ -21,10 +21,13 @@ const DetailScreen = ({ currentData, forecastData, threeHrsData, match }) => {
         return (prefix + icon);
     };
 
+    const todaysPath = forecastData.daily[0].dt;
+
     return(
         <div className="detailScreen">
             <Navigation>
-                { day }
+                {/* shows day name on top nav bar after click on day card or 'dnes' on default after redirect */}
+                { day || 'Dnes' }
             </Navigation>
             <GoHomeBtn />
             <Route 
@@ -43,6 +46,8 @@ const DetailScreen = ({ currentData, forecastData, threeHrsData, match }) => {
                 getWeatherIcon={getWeatherIcon}
                 setDay={setDay}
             />
+            {/*redirect so after component renders it shows todays data*/}
+            <Redirect to= {`${match.url}/${todaysPath}`} />
         </div>
     )
 }

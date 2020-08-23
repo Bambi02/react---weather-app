@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormCard from './FormCard';
 import Navigation from './Navigation';
+import NotificationMessgae from './NotificationMessage';
 import axios from 'axios';
 
 class FormScreen extends Component {
@@ -75,9 +76,11 @@ class FormScreen extends Component {
     clearNotif = () => this.handleTimeout = setTimeout(() => this.setState({ formNotification: false }), 1200);
 
     render() {
+
         return(
             <div className="formScreen">
                 <Navigation />
+                {this.state.formNotification && <NotificationMessgae error={this.state.formNotification} color={this.state.notifColor}/>}
                 <FormCard
                     notification={this.state.formNotification}
                     notifColor={this.state.notifColor}

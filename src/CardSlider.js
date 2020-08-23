@@ -9,7 +9,7 @@ const CardSlider = ({ children, setPosition, numberOfCards }) => {
     useEffect(() => {
         numberOfCards % 2 === 0 && setPosition(-cardWidth/2);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [setPosition]);
+    }, [setPosition, numberOfCards]);
 
     return(
         <div className="cardSlider">

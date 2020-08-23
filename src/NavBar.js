@@ -7,7 +7,7 @@ const NavBar = ({ toggleSideMenu, children }) => {
         <nav>
             <div className="leftPart">
                 <i className="fas fa-bars" onClick={toggleSideMenu}></i>
-                <div className="logo">DK weather</div>
+                <div className="logo"><span>DK</span> weather</div>
             </div>
             <div className="navDayName">
                 { children }
