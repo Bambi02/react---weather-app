@@ -36,18 +36,22 @@ const DayDetail = ({ currentData, forecastData, threeHrsData, getWeatherIcon, ma
                     </p>
                 </div>
                 <div className="humidity den-small">
+                    <h2>vlhkosť</h2>
                     <i className="wi wi-humidity"></i>
                     <p>{ thisDayData.humidity + ' %' }</p>
                 </div>
                 <div className="cloudiness den-small">
+                    <h2>oblačnosť</h2>
                     <i className="wi wi-cloud"></i>
                     <p>{ thisDayData.clouds + ' %' }</p>
                 </div>
                 <div className="rainProb den-small">
+                    <h2>zrážky</h2>
                     <i className="wi wi-raindrop"></i>
                     <p>{ Math.round(thisDayData.pop*100) + ' %' }</p>
                 </div>
                 <div className="rainAmount den-small">
+                    <h2>zrážky</h2>
                     <i className="wi wi-raindrops"></i>
                     <p>{ rainAmount + ' mm' }</p>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
@@ -37,7 +37,6 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
                     backgroundColor: 'transparent',
                     borderColor: '#e7ad40',
                     hoverBackgroundColor: 'gray',
-                    minBarLength: 1,
                 }]
             }}
 
@@ -81,7 +80,7 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
                         },
                         ticks: {
                             suggestedMin: 0,
-                            suggestedMax: 110,
+                            suggestedMax: 130,
                             display: false,
                         }
                     }]
@@ -109,6 +108,7 @@ const RainChart = ({ forecastData, threeHrsData, thisDayData }) => {
     return(
         <div className="chart">
             { chart }
+            <h2>pravdepodobnosť zrážok</h2>
         </div>
     )
 }
