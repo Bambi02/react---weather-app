@@ -31,18 +31,24 @@ class CityCards extends Component{
         this.closeCityCard(id);
     }
 
-    setPosition = (offset) => {
+    setPosition = (offset=0) => {
         this.setState( oldState => ({ 
             position: oldState.position + offset,
         }))
     }
 
+    adjustPosition = (position) => {
+        this.setState({ position })
+    }
+
     render(){
+
         if(this.props.numberOfCards >= this.cardsReqSlider){
             return(
                 <CardSlider 
                     setPosition={this.setPosition}
                     numberOfCards = {this.props.numberOfCards}
+                    adjustPosition={this.adjustPosition}
                 >
                     <ListOfCards
                         data={this.props.data} 
