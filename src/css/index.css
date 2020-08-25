@@ -138,17 +138,27 @@ nav{
   align-items: center;
   padding-top: 4vw;
   position: relative;
-  background: #f8f8f8fa;
+  background: #f8f8f8f8;
+  color: #231d14;
 }
 
 /*----------------------------------------------- FORM CARD ------------------------------------------*/
 
 .addCityCard,
 .addCityForm{
-  background-image: url("../city.jpg");
-  background-size: contain;
+  background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.addCityCard img,
+.addCityForm img{
+  position: absolute;
+  bottom: 0;
+  width: 123%;
+  opacity: 0.97;
 }
 
 .addCityForm{
@@ -186,6 +196,7 @@ nav{
   position: absolute;
   font-size: 1.5vw;
   top: 0.8vw;
+  z-index: 5;
 }
 
 /*------------------------------------------- ADD CITY CARD ---------------------------------------*/
@@ -202,10 +213,16 @@ nav{
   align-items: center;
   position: relative;
   margin: 0.75vw;
+  color: #231d14;
+}
+
+.linkContainer:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.250);
 }
 
 .addCityCard{
   margin-right: 1.5vw;
+  max-width: 12vw;
 }
 
 .addCityBtn,
@@ -224,6 +241,7 @@ nav{
   color: #e7ad40;
   top: 24%;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.250);
+  z-index: 5;
 }
 
 .addCityBackBtn{
@@ -274,7 +292,7 @@ nav{
 
 .addCityCard:hover{
   transform: scale(1.1);
-  box-shadow: 7px 7px 12px rgb(209, 209, 209);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.250);
 }
 
 .linkContainer:active{
